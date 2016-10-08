@@ -214,6 +214,18 @@ public class AnimationContextSWT implements AnimationContext {
 		drawTriangle(x1, y1, x2, y2, x3, y3, RaoColor.WHITE, RaoColor.BLACK);
 	}
 
+	@Override
+	public void drawImage(String fileName, int x, int y) {
+		paintContext.drawImage(new Image(paintContext.getDevice(), fileName), x, y);
+	}
+
+	@Override
+	public void drawImage(String fileName, int srcX, int srcY, int srcWidth, int srcHeight, int destX, int destY,
+			int destWidth, int destHeight) {
+		paintContext.drawImage(new Image(paintContext.getDevice(), fileName), srcX, srcY, srcWidth, srcHeight, destX,
+				destY, destWidth, destHeight);
+	}
+
 	Color createColor(RaoColor color) {
 		return new Color(display, color.r, color.g, color.b);
 	}
